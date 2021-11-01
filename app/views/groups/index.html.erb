@@ -14,13 +14,13 @@
       <% @groups.each do |group| %>
         <tr>
           <td><%= attachment_image_tag group,:image, fallback: "no_image.jpg", size:"40x40" %></td>
-          <td><%= group.name %></td>
+          <td><%= link_to group_path(group) do %>
+              <%= group.name %><% end %></td>
           <td><%= group.introduction %></td>
         </tr>
+      <% end %>
       </tbody>
     </table>
 
-
-    <% end %>
   </div>
 </div>
