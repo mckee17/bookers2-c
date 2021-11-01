@@ -39,6 +39,9 @@ class GroupsController < ApplicationController
       render :edit
     end
   end
+  
+  def mail
+    
 
 private
   def group_params

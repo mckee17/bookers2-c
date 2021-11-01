@@ -18,7 +18,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :groups, only:[:index,:show,:new,:create,:edit,:update]  do
+  resources :groups, only:[:index,:show,:new,:create,:edit,:update] do
+    member do
+      get :mail
+    end
     resource :group_users, only:[:create,:destroy]
   end
 
