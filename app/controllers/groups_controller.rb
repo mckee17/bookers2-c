@@ -5,6 +5,7 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @users = @group.users
+    @owner = User.find_by(id: @group.owner_id)
   end
   def new
     @group = Group.new
