@@ -39,9 +39,18 @@ class GroupsController < ApplicationController
       render :edit
     end
   end
-  
-  def mail
-    
+
+  def new_mail
+    @group = Group.find(params[:id])
+  end
+
+  def send_mail
+    @group = Group.find(params[:id])
+    @users = @group.users
+    @mail_title = params[:mail_title]
+    @mail_content = params[:mail_content]
+    GroupMailer.send_mail(@mail_title, @mail_content, @users).deliver
+  end
 
 private
   def group_params
