@@ -50,11 +50,13 @@
           <td><%= @owner.introduction %></td>
         </tr>
       <% @users.each do |user| %>
+        <% if user != @owner %>
         <tr>
           <td><%= attachment_image_tag user,:profile_image, fallback: "no_image.jpg", size:"40x40" %></td>
           <td><%= user.name %></td>
           <td><%= user.introduction %></td>
         </tr>
+        <% end %>
       <% end %>
       </tbody>
     </table>
