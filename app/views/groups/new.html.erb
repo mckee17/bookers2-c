@@ -1,4 +1,7 @@
 <div class="container">
+  
+  <%= render'layouts/errors', obj: @group %>
+  
   <h2>Create Group</h2>
 
   <%= form_with model:@group, local:true do |f| %>
