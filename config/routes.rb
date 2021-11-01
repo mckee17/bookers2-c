@@ -18,4 +18,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :groups, only:[:index,:show,:edit,:update] do
+    resource :group_users, only:[:create]
+  end
+
 end
