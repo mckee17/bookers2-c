@@ -1,6 +1,34 @@
 <div class="container">
   <div class="row">
-    <h2>Group Deteil</h2>
+
+    <h2>Group Detail</h2>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>グループ名</th>
+          <th>紹介文</th>
+          <th>メンバー</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= attachment_image_tag @group,:image, fallback: "no_image.jpg", size:"40x40" %></td>
+          <td><%= @group.name %></td>
+          <td><%= @group.introduction %></td>
+          <% @users.each do |user| %>
+          <td><%= user.name %></td>
+          <% end %>
+          
+          
+          <td><%= link_to "Join this group", group_group_users_path(@group), method: :post, class:"btn btn-success" %></td>
+          <td><%= link_to "Leave this group", group_group_users_path(@group), method: :delete, class:"btn btn-danger" %></td>
+        </tr>
+      </tbody>
+    </table>
+
     <table class="table">
       <thead>
         <tr>
@@ -13,7 +41,7 @@
       <tbody>
         <tr>
           <td><%= attachment_image_tag @owner,:profile_image, fallback: "no_image.jpg", size:"40x40" %></td>
-          <td><%= @owner.name %></td>
+          <td><%= @owner.name %>（部屋主）</td>
           <td><%= @owner.introduction %></td>
         </tr>
       <% @users.each do |user| %>
@@ -25,5 +53,6 @@
       <% end %>
       </tbody>
     </table>
+
   </div>
 </div>
