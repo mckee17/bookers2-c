@@ -49,7 +49,7 @@ class GroupsController < ApplicationController
     @users = @group.users
     @mail_title = params[:mail_title]
     @mail_content = params[:mail_content]
-    GroupMailer.send_mail(@mail_title, @mail_content, @users).deliver
+    GroupMailer.send_mail(@users, @mail_title, @mail_content ).deliver_now
   end
 
 private
